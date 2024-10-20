@@ -5,40 +5,40 @@ TRASH="$HOME/.local/share/Trash"
 
 while true; do
     echo "=============================="
-    echo "           PAPERERA           "
+    echo "           TRASH BIN          "
     echo "=============================="
-    echo "1) Veure el contingut de la paperera"
-    echo "2) Netejar la paperera"
-    echo "3) Sortir"
+    echo "1) View trash contents"
+    echo "2) Empty trash"
+    echo "3) Exit"
     echo
-    printf "Selecciona una opció: "
+    printf "Select an option: "
     read -r OPTION
 
     case "$OPTION" in
         1)
             echo
-            echo "Contingut de la paperera:"
+            echo "Trash contents:"
             ls -la "$TRASH/files"
             echo
             ;;
         2)
             echo
-            printf "Estàs segur que vols netejar la paperera? (Y/N): "
+            printf "Are you sure you want to empty the trash? (Y/N): "
             read -r CONFIRM
             if [ "$CONFIRM" = "y" ] || [ "$CONFIRM" = "Y" ]; then
                 rm -rf "$TRASH/files/"* "$TRASH/info/"*
-                echo "Paperera netejada."
+                echo "Trash emptied."
             else
-                echo "Operació cancel·lada"
+                echo "Operation cancelled."
             fi
             echo
             ;;
         3)
-            echo "Sortint..."
+            echo "Exiting..."
             exit 0
             ;;
         *)
-            echo "Opció invàlida. Si us plau, tria una opció vàlida"
+            echo "Invalid option. Please choose a valid option."
             ;;
     esac
 done
